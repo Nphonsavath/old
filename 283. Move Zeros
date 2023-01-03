@@ -1,0 +1,28 @@
+import java.util.*;
+
+class Solution {
+   public void moveZeros(int[] nums) {
+		int end = nums.length;
+		if(end == 1) {
+			return;
+		}
+
+		int left = 0;
+		for (int right = 0; right < end; right++){
+			if (nums[right] != 0){
+				int temp = nums[right];
+				nums[right] = nums[left];
+				nums[left] = temp;
+				left++;
+			}
+		}
+		return;
+}
+    public static void main(String[] args){
+		Solution s = new Solution();
+        int[] nums = {0,1,0,3,12};
+		int[] nums2 = {0};
+        s.moveZeros(nums);
+		System.out.println(Arrays.toString(nums));
+    }
+}
